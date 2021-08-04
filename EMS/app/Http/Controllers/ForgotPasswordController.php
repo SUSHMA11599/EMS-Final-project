@@ -7,22 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class ForgotPasswordController extends Controller
 {
-    //
-    public function getData(Request $req)
-    {
-        $req->validate([
-            'username' => 'required | max:10',
-            'new_password' => 'required | min:4 ',
-            'confirm_password' => 'required | same:new_password',
-        ]);
-        return $req->input();
-    }
-
-    public function show(Request $req)
-    {
-        return DB::select("select * from users;");
-    }
-
+    //updating password for forgot password user
     public function updatePassword(Request $req)
     {
         $req->validate([

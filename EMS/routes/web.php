@@ -82,12 +82,12 @@ Route::get('projdet/{id}',[AdminController::class,'getProjDetails']);
 Route::get('empDet/{id}',[AdminController::class,'getEmpDetails']);
 
 
-Route::put('updatestatus',[AdminController::class,'updateStatus']);
+Route::put('updatestatus',[AdminController::class,'updateStatusOfIssues']);
 
 
-Route::get('edit/{id}',[AdminController::class,'showEmpDetails']);
+Route::get('edit/{id}',[AdminController::class,'showEmpDetailsToEdit']);
 
-Route::get('editproj/{id}',[AdminController::class,'showProjDetails']);
+Route::get('editproj/{id}',[AdminController::class,'showProjDetailsToEdit']);
 
 Route::post('editproj',[AdminController::class,'updateProjectDetails']);
 

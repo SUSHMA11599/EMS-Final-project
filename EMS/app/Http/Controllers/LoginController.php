@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
+
+    //user login page
     public function login(Request $req)
     {
+        //validations
         $req->validate([
             'username' => 'required | max:10',
             'password' => 'required | min:4 max:10',
@@ -29,6 +32,9 @@ class LoginController extends Controller
 
             if ($password == $data->password) {
 
+                //by deciding the type of user we are deciding what data he will take into a userdashboard
+
+                //NORMAL user
                 if ($data->type_of_user == "Normal") {
 
                     $issues = DB::table('Issues')
@@ -39,7 +45,10 @@ class LoginController extends Controller
                     $array = ['userdata', 'issues'];
 
                     return view('userdashboard', compact($array));
-                } else if ($data->type_of_user == "Manager") {
+                }
+
+                //MANAGER user
+                else if ($data->type_of_user == "Manager") {
 
                     $issues = DB::table('issues')
                         ->join('emp_issue', 'emp_issue.emp_id', '=', 'issues.emp_id')
@@ -64,7 +73,13 @@ class LoginController extends Controller
 
                     $array = ['userdata', 'users', 'issues', 'projects'];
                     return view('managerDashboard', compact($array));
-                } else if ($data->type_of_user == "Admin") {
+                }
+                //ADMIN user
+                else if ($data->type_of_user == "Admin") {
+
+                    $Users = User::all();
+                    $projects = Project::all();
+                    $issues = Issue::all();
 
                     $normalUsers = DB::table('users')
                         ->where('type_of_user', 'Normal')
@@ -78,11 +93,7 @@ class LoginController extends Controller
 
                     $NumberOfUsers = $normalUsers + $managers;
 
-                    $Users = User::all();
-                    $projects = Project::all();
-                    $issues = Issue::all();
-
-                    $array = ['Users', 'issues', 'projects', 'NumberOfUsers'];
+                    $array = ['Users', 'issues', 'projects','NumberOfUsers'];
                     return view('adminDashboard', compact($array));
                 }
 

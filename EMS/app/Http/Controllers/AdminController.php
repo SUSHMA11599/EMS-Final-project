@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
 
+    //delete the employee from database
     public function deleteEmp($id)
     {
 
@@ -24,6 +25,7 @@ class AdminController extends Controller
         }
     }
 
+    //add project to project table
     public function addProject(Request $req)
     {
         $req->validate([
@@ -47,6 +49,7 @@ class AdminController extends Controller
         }
     }
 
+    //to get project details of specific employees
     public function getProjDetails($id)
     {
         $normalEmp = DB::table('users AS u')
@@ -68,6 +71,7 @@ class AdminController extends Controller
         return view('displayProj', compact($array));
     }
 
+    //get employee details of id
     public function getEmpDetails($id)
     {
         $res = DB::table('users')
@@ -76,7 +80,8 @@ class AdminController extends Controller
         return view('dispEmp', ['emp' => $res]);
     }
 
-    public function updateStatus(Request $req)
+    //to update the status of an issue
+    public function updateStatusOfIssues(Request $req)
     {
         $res = Issue::where('issue_id', "=", $req->id)
             ->update(['status' => $req->status]);
@@ -88,7 +93,8 @@ class AdminController extends Controller
         }
     }
 
-    public function showEmpDetails($id)
+    //to view all emp details
+    public function showEmpDetailsToEdit($id)
     {
         $res = DB::table('users')
             ->where('users.emp_id', '=', $id)
@@ -96,7 +102,8 @@ class AdminController extends Controller
         return view('editEmployee', ['emp' => $res]);
     }
 
-    public function showProjDetails($id)
+    //display project details when clicked on view project
+    public function showProjDetailsToEdit($id)
     {
         $res = DB::table('projects')
             ->where('projects.project_id', '=', $id)
@@ -104,6 +111,7 @@ class AdminController extends Controller
         return view('editProject', ['proj' => $res]);
     }
 
+    //update project details in admin page
     public function updateProjectDetails(Request $req)
     {
         $req->validate([
@@ -130,6 +138,7 @@ class AdminController extends Controller
         }
     }
 
+    //update employee details in admin page
     public function updateEmpDetails(Request $req)
     {
 

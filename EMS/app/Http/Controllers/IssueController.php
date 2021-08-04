@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class IssueController extends Controller
 {
 
+    //to create new issue in all user pages
     public function submitIssue(Request $req)
     {
         $issue = new issue;
@@ -33,6 +34,7 @@ class IssueController extends Controller
         ->where('emp_id', '=', $req->emp_id)
         ->get();
         
+        //assigning the issue to respective managers
         foreach ($mg_id as $mg) {
             $final_mg_id = $mg->manager_id;
             DB::table('emp_issue')
