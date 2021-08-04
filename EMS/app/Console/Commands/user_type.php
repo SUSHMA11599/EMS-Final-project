@@ -53,8 +53,8 @@ class user_type extends Command
 
         print("Press 1 to make a user Admin \n");
         print("Press 2 to make a user Manager \n");
-        print("Press 3 to change a user to Normal user \n");
-        print("Press 4 to quit\n");
+        //print("Press 3 to change a user to Normal user \n");
+        print("Press 3 to quit\n");
 
         $input = (int)readline("Enter your response : ");
 
@@ -90,7 +90,7 @@ class user_type extends Command
                 echo "Exception : ".$e->getMessage();
             }
         }
-        elseif( $input == 3){
+        /*elseif( $input == 3){
             $id = readline("Enter id of the user to make them a Normal User : ");
             try{
                 $user = User::where('emp_id', $id)->update(array('type_of_user' => 'Normal'));
@@ -104,9 +104,9 @@ class user_type extends Command
             catch( Exception $e ){
                 echo "Exception : ".$e->getMessage();
             }
-        }
-        elseif( $input == 4){
-            exit("exiting...");
+        }*/
+        elseif( $input == 3){
+            exit("exiting...\n");
         }
         else
         {
