@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class RegController extends Controller
 {
+
+    //registering an employee from register form
     public function getFormData(Request $req)
     {
         $req->validate([
@@ -30,8 +32,8 @@ class RegController extends Controller
 
             $emp_id = DB::table('users')
             ->max('emp_id');
-            return redirect()->back()->with('message', 'Registration Successful 
-                                            Your employee id is: ' .$emp_id);
+            
+            return redirect()->back()->with('message', 'Registration Successful Your employee id is: ' .$emp_id);
 
             
         }

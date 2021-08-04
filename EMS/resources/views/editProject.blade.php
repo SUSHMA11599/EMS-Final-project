@@ -24,6 +24,8 @@
     </div>
     @endif
     <div class="d-flex align-items">
+
+        <!-- form to edit details of projects -->
         <form action="updateProjectDetails" method="POST">
             {{method_field('PUT')}}
             @csrf

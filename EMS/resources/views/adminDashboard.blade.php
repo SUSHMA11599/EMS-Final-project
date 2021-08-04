@@ -18,6 +18,9 @@
 <body class="d-flex flex-column h-100 row align-items-center">
     <x-adminheader /><br>
 
+
+    <!-- adding a header text -->
+
     <div class="card text-center">
         <div class="card-header"></div>
         <div class="card-body">
@@ -75,7 +78,7 @@
         @endforeach
     </table>
 
-    <!-- All the users in the Database  -->
+    <!-- All the users in the registered  -->
     @if( $NumberOfUsers > 0)
     <table class="table w-75 mx-auto" id="reportees" hidden>
         <thread>
@@ -105,12 +108,14 @@
         @endforeach
 
         @else
+
+        <!-- if no Users registered -->
         <h4>No Registered Users So far</h4>
         @endif
 
     </table>
 
-
+    <!-- to print all projects going on -->
     <table class="table w-75 mx-auto" id="projects" hidden>
         <thread>
             <tr>
@@ -137,6 +142,9 @@
                 class="btn btn-primary" id="addprojectbutton" hidden>Add Project</button>
         </div>
     </table>
+
+
+    <!-- to display all issues by users -->
     <table class="table w-75 mx-auto" id="issues" hidden>
 
         <thread>
@@ -174,7 +182,8 @@
 
         @endforeach
     </table>
-    <!-- Issue Box -->
+
+    <!-- Admin create Issue form -->
     <div class="d-flex flex-column">
 
         <form action="issue" method="GET" id="raiseissue" hidden>

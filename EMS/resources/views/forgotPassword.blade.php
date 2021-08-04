@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title> Reset Password </title>
+    <title> Forgot Password </title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
@@ -21,9 +21,6 @@
           <div class="card-body">
             
             <h5 class="card-title">Forgot Password Page</h5>
-            {{-- <p class="card-text">
-                Enter following details to reset your secret password
-            </p> --}}
           </div>
     </div>
 

@@ -17,6 +17,8 @@
 
 <body class="d-flex flex-column h-100 row align-items-center">
     <x-plainheader />
+
+    <!-- to display all personal data of specific employee-->
     <h5>Following are the details of the Employee</h5>
 
     <table class="table w-75">

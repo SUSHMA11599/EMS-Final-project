@@ -58,7 +58,6 @@
             <td>{{ $user->city }}</td>
             <td>
                 <a href="" data-toggle="modal" data-target="#editModal">Edit Details</a>
-                <!-- <a href="" data-toggle="modal" data-target="#Modal">Edit Address</a> -->
             </td>
         </tr>
         @endforeach

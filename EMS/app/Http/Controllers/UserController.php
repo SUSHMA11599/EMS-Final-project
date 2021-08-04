@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
+    //all users can update mobile number 
     public function updateMobile(Request $req)
     {
         $user = User::where('emp_id', $req->emp_id)->update(array('phone_number' => $req->newMobileNumber));
@@ -15,6 +17,8 @@ class UserController extends Controller
             return redirect()->back()->with('message', 'mobile Number updated');
         }
     }
+
+    //all users can update address
     public function updateAddress(Request $req)
     {
         $user = User::where('emp_id', $req->emp_id)->update(array('comm_address' => $req->newAddress));

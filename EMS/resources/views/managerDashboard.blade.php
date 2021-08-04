@@ -94,8 +94,6 @@
 
 
     <table class="table w-75 mx-auto" id ="projects" hidden>
-    <!-- <h5 class="mt-2 mt-3 mb-3">Projects </h5> -->
-
         <thread>
             <tr>
                 <th>Project ID</th>
@@ -137,15 +135,15 @@
             </tr>
         </thread>
 
-        @foreach($users as $user)
+        @foreach($users as $emp)
         <tr>
-            <td>{{ $user->emp_id }}</td>
-            <td>{{ $user->first_name ." ". $user->last_name}}</td>
-            <td>{{ $user->phone_number }}</td>
-            <td>{{ $user->DOB }}</td>
-            <td>{{ $user->comm_address }}</td>
-            <td>{{ $user->gender }}</td>
-            <td>{{ $user->city }}</td>
+            <td>{{ $emp->emp_id }}</td>
+            <td>{{ $emp->first_name ." ". $user->last_name}}</td>
+            <td>{{ $emp->phone_number }}</td>
+            <td>{{ $emp->DOB }}</td>
+            <td>{{ $emp->comm_address }}</td>
+            <td>{{ $emp->gender }}</td>
+            <td>{{ $emp->city }}</td>
 
         </tr>
         @endforeach
@@ -169,9 +167,6 @@
                         <button type="submit" class="btn btn-warning w-100">Submit Issue</button>
             </form>
         </div>
-
-    <!-- </div> -->
-
 
 
     <x-footer />

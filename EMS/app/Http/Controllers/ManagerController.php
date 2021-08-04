@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 class ManagerController extends Controller
 {
+
+    //manager should be able to add employees to his project
     public function addEmployee(Request $req)
     {
         $req->validate([
@@ -29,10 +31,13 @@ class ManagerController extends Controller
         }
 
     }
+
+    //manager can delete employee from projects
     public function deleteEmployee(Request $req)
     {
         $req->validate([
             'emp_id' => 'required',
+            'proj_id' => 'required'
         ]);
 
         $eid = $req->input('emp_id');

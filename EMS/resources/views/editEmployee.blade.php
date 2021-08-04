@@ -17,7 +17,7 @@
 
 <body class="d-flex flex-column h-100 row align-items-center">
     <x-plainheader />
-
+<!-- form to edit details of employee -->
     <h4>Employee details</h4>
     @if(session()->has('message'))
     <div class="alert alert-success">
