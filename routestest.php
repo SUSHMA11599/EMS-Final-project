@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use Tests\TestCase;
 
@@ -17,12 +17,14 @@ class routestest extends TestCase
         $signin = $this->get('/signin');
         $register = $this->get('/register');
         $forgotpass = $this->get('/forgotPass');
-        $issue = $this->get('issue');
+        $issue = $this->get('/issue');
 
         $homeresponse->assertStatus(200);
         $signin->assertStatus(200);
         $register->assertStatus(200);
         $forgotpass->assertStatus(200);
+        $issue->assertStatus(500); //Since it's a form
+
     }
 
     public function test_welcome_view()
@@ -46,32 +48,21 @@ class routestest extends TestCase
      */
     public function testLogin($userid, $password, $expected){
 
-        $response = $this->call('GET', 'http://127.0.0.1:8000/login', [
+        $response = $this->call('GET', 'http://127.0.0.1:8000/login',[
             "username"=>$userid,
             "password"=>$password
         ]);
         // fwrite(STDOUT, $response->getContent() );
         $response->assertSee($expected);
+
+        
     }
 
     public function loginData(){
         return [
-            [505,"12345","Welcome"],
-            [503,"Shan123","Welcome"],
+            [1,"qwerty123","Welcome, Shubham Singh , (Admin)"],
+            [2,"password","Welcome, Anmol Raje ( Manager )"]
         ];
-    }
-
-    
-    /**
-     * Testing Reset Password Route
-     */
-    public function test_a_basic_request1()
-    {
-        $response = $this->get('/forgotPass');
-
-        $response->assertViewIs('forgotPassword');
-
-        $response->assertStatus(200);
     }
 
 }

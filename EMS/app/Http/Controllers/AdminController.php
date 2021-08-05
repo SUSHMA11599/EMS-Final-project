@@ -25,7 +25,9 @@ class AdminController extends Controller
         }
     }
 
-    //add project to project table
+    /*
+     *add project to project table
+     */
     public function addProject(Request $req)
     {
         $req->validate([
@@ -45,7 +47,7 @@ class AdminController extends Controller
         if ($project) {
             return redirect()->back()->with('message', 'Project Added Successfully');
         } else {
-            return redirect()->back()->with('message', 'Some issues');
+            return redirect()->back()->with('message', 'Project cannot be Added');
         }
     }
 
@@ -89,7 +91,7 @@ class AdminController extends Controller
         if ($res) {
             return redirect()->back()->with('message', 'Issue Status Changed');
         } else {
-            return redirect()->back()->with('message', 'Issue Status Changed');
+            return redirect()->back()->with('message', 'Cannot Change Issue Status');
         }
     }
 
@@ -134,14 +136,13 @@ class AdminController extends Controller
         if ($project) {
             return redirect()->back()->with('message', 'Data Edited Successfully');
         } else {
-            return redirect()->back()->with('message', 'Data Edited Successfully');
+            return redirect()->back()->with('message', 'Data cannot be Edited');
         }
     }
 
     //update employee details in admin page
     public function updateEmpDetails(Request $req)
     {
-
         $user = User::where('emp_id', '=', $req->emp_id)
             ->update(
                 [
@@ -158,7 +159,7 @@ class AdminController extends Controller
         if ($user) {
             return redirect()->back()->with('message', 'Data Edited Successfully');
         } else {
-            return redirect()->back()->with('message', 'Data Edited Successfully');
+            return redirect()->back()->with('message', 'Data cannot be Edited');
         }
 
     }

@@ -27,10 +27,10 @@ class ForgotPasswordController extends Controller
             $password = $req->input('new_password');
 
             DB::update('update users set password=? where emp_id = ?', [$password, $id]);
-            return back()->with('success', 'yay!!! password updated');
+            return back()->with('success', 'Password Updated');
 
         } else {
-            return back()->with('error', 'Opps!!! Username not Found');
+            return back()->with('error', 'Username not Found');
         }
 
     }

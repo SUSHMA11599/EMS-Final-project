@@ -14,6 +14,7 @@ class RegController extends Controller
     {
         $req->validate([
             'mobile' => 'required|regex:/^(\+\d{1,3}[-\s]?)?\d{10}$/',
+            'first_name' => 'required'
         ]);
 
         $user = new User;

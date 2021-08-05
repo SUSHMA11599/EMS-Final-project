@@ -98,11 +98,11 @@ class LoginController extends Controller
                 }
 
             } else {
-                return back()->with('fail', 'invalid password');
+                return back()->with('fail', 'Invalid Password');
             }
 
         } else {
-            return back()->with('fail', 'invalid user name');
+            return back()->with('fail', 'Invalid Username');
         }
     }
 

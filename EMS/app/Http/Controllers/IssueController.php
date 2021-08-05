@@ -12,6 +12,14 @@ class IssueController extends Controller
     //to create new issue in all user pages
     public function submitIssue(Request $req)
     {
+
+        $req->validate([
+
+            'emp_id' => 'required',
+           'issue_type' => 'required',
+            'issue_desc' => 'required',
+        ]);
+
         $issue = new issue;
         $issue->emp_id = $req->emp_id;
         $issue->issue_type = $req->issue_type;

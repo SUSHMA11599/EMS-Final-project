@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         $user = User::where('emp_id', $req->emp_id)->update(array('phone_number' => $req->newMobileNumber));
         if ($user > 0) {
-            return redirect()->back()->with('message', 'mobile Number updated');
+            return redirect()->back()->with('message', 'Mobile Number Updated');
         }
     }
 

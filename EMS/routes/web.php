@@ -50,9 +50,6 @@ Route::view('userdashboard','userdashboard');
 Route::view('forgotPass','forgotPassword');
 
 Route::post('update',[ForgotPasswordController::class,'updatePassword']);
-
-
-
 Route::get('issue',[IssueController::class,'submitIssue']);
 
 Route::get('list',[IssueController::class,'getIssue']);
