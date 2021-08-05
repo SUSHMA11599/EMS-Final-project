@@ -37,6 +37,8 @@ class RegController extends Controller
             return redirect()->back()->with('message', 'Registration Successful Your employee id is: ' .$emp_id);
 
             
+
+            
         }
          else {
             return redirect()->back()->with('message', 'Issues with Registration ');
